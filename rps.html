@@ -8,10 +8,18 @@ body {
     text-align: center;
     font-family: Arial;
     margin-top: 80px;
+    background: linear-gradient(to right, #89f7fe, #66a6ff);
 }
+
 button {
-    padding: 10px;
-    margin: 5px;
+    padding: 12px;
+    margin: 8px;
+    font-size: 18px;
+}
+
+#thinking {
+    font-size: 20px;
+    color: yellow;
 }
 </style>
 </head>
@@ -24,31 +32,31 @@ button {
 <button onclick="play('paper')">Paper</button>
 <button onclick="play('scissors')">Scissors</button>
 
+<h2 id="thinking"></h2>
 <h2 id="result"></h2>
 
 <script>
 
-function play(user){
+function play(userChoice) {
 
-let choices=["rock","paper","scissors"];
-let comp=choices[Math.floor(Math.random()*3)];
+document.getElementById("result").innerHTML = "";
+document.getElementById("thinking").innerHTML = "🤖 Computer is thinking...";
 
-if(user==comp){
-document.getElementById("result").innerHTML="🤝 Draw";
+// delay to make it feel real
+setTimeout(function(){
+
+let choices = ["rock", "paper", "scissors"];
+let computerChoice = choices[Math.floor(Math.random() * 3)];
+
+document.getElementById("thinking").innerHTML =
+"Computer chose: " + computerChoice;
+
+if(userChoice == computerChoice){
+    document.getElementById("result").innerHTML = "🤝 Draw!";
 }
 else if(
-(user=="rock" && comp=="scissors")||
-(user=="paper" && comp=="rock")||
-(user=="scissors" && comp=="paper")
+(userChoice=="rock" && computerChoice=="scissors") ||
+(userChoice=="paper" && computerChoice=="rock") ||
+(userChoice=="scissors" && computerChoice=="paper")
 ){
-document.getElementById("result").innerHTML="🎉 You Win!";
-}else{
-document.getElementById("result").innerHTML="😢 You Lose!";
-}
-
-}
-
-</script>
-
-</body>
-</html>
+    document.getElementById

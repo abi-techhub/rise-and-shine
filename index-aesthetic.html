@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Rise and Shine 🌞</title>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial;
+    background-size: cover;
+    background-position: center;
+    transition: 0.5s;
+}
+
+.card {
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(12px);
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    color: white;
+    width: 80%;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
+h1 {
+    font-size: 28px;
+}
+
+p {
+    font-size: 18px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+    <h1>Rise and Shine 🌞</h1>
+    <p id="quote"></p>
+</div>
+
+<script>
+
+const quotes = [
+"Believe in yourself ✨",
+"Every sunrise brings new hope 🌅",
+"You are doing better than you think 🌿",
+"Stay calm and trust your journey 🌊",
+"Small steps lead to big success 🚀",
+"Your energy creates your world 🌞"
+];
+
+const images = [
+"https://images.unsplash.com/photo-1500530855697-b586d89ba3ee",
+"https://images.unsplash.com/photo-1507525428034-b723cf961d3e",
+"https://images.unsplash.com/photo-1441974231531-c6227db76b6e",
+"https://images.unsplash.com/photo-1470770841072-f978cf4d019e"
+];
+
+let day = new Date().getDate();
+
+document.getElementById("quote").innerText =
+quotes[day % quotes.length];
+
+document.body.style.backgroundImage =
+"url('" + images[day % images.length] + "')";
+
+</script>
+
+</body>
+</html>

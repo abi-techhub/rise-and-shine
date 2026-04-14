@@ -1,22 +1,54 @@
-import random
+<!DOCTYPE html>
+<html>
+<head>
+<title>RPS Game</title>
 
-print("Rock Paper Scissors Game")
+<style>
+body {
+    text-align: center;
+    font-family: Arial;
+    margin-top: 80px;
+}
+button {
+    padding: 10px;
+    margin: 5px;
+}
+</style>
+</head>
 
-choices = ["rock", "paper", "scissors"]
+<body>
 
-computer = random.choice(choices)
+<h1>✊✋✌️ Rock Paper Scissors</h1>
 
-user = input("Enter rock, paper, or scissors: ")
+<button onclick="play('rock')">Rock</button>
+<button onclick="play('paper')">Paper</button>
+<button onclick="play('scissors')">Scissors</button>
 
-print("Computer chose:", computer)
+<h2 id="result"></h2>
 
-if user == computer:
-    print("It's a tie!")
-elif user == "rock" and computer == "scissors":
-    print("You win!")
-elif user == "paper" and computer == "rock":
-    print("You win!")
-elif user == "scissors" and computer == "paper":
-    print("You win!")
-else:
-    print("Computer wins!")
+<script>
+
+function play(user){
+
+let choices=["rock","paper","scissors"];
+let comp=choices[Math.floor(Math.random()*3)];
+
+if(user==comp){
+document.getElementById("result").innerHTML="🤝 Draw";
+}
+else if(
+(user=="rock" && comp=="scissors")||
+(user=="paper" && comp=="rock")||
+(user=="scissors" && comp=="paper")
+){
+document.getElementById("result").innerHTML="🎉 You Win!";
+}else{
+document.getElementById("result").innerHTML="😢 You Lose!";
+}
+
+}
+
+</script>
+
+</body>
+</html>

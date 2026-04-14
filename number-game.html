@@ -1,18 +1,42 @@
-import random
+<!DOCTYPE html>
+<html>
+<head>
+<title>Guess Number</title>
 
-print("Welcome to Number Guessing Game")
+<style>
+body {
+    text-align: center;
+    font-family: Arial;
+    margin-top: 80px;
+}
+</style>
+</head>
 
-number = random.randint(1, 10)
+<body>
 
-guess = 0
+<h1>🎯 Guess Number (1-10)</h1>
 
-while guess != number:
-    guess = int(input("Enter a number between 1 and 10: "))
+<input id="guess" type="number">
+<button onclick="check()">Check</button>
 
-    if guess < number:
-        print("Too low!")
-    elif guess > number:
-        print("Too high!")
-    else:
-        print("Correct! You win!")
-      
+<h2 id="result"></h2>
+
+<script>
+
+let secret = Math.floor(Math.random()*10)+1;
+
+function check(){
+let user = document.getElementById("guess").value;
+
+if(user == secret){
+document.getElementById("result").innerHTML = "🎉 Correct!";
+secret = Math.floor(Math.random()*10)+1;
+}else{
+document.getElementById("result").innerHTML = "❌ Try again";
+}
+}
+
+</script>
+
+</body>
+</html>

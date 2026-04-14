@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Rise and Shine</title>
+
+<style>
+body {
+    background-color: lightyellow;
+    text-align: center;
+    font-family: Arial;
+}
+
+button {
+    padding: 12px;
+    font-size: 18px;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>Rise and Shine 🌞</h1>
+
+<p>Your daily dose of positivity</p>
+
+<button onclick="showMessage()">
+Get Positive Thought
+</button>
+
+<p id="message"></p>
+
+<script>
+
+function showMessage() {
+
+var thoughts = [
+"You are stronger than you think.",
+"Better days are coming.",
+"Keep going, you are doing well.",
+"You matter.",
+"Stay positive and smile."
+];
+
+var random =
+thoughts[Math.floor(Math.random() * thoughts.length)];
+
+document.getElementById("message").innerText =
+random;
+
+}
+
+</script>
+
+</body>
+</html>
